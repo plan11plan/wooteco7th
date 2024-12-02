@@ -7,6 +7,15 @@ public class RequestPattern {
     }
 
     public static String createRacingCars() {
+
+        String regrxSting = new PatternBuilder()
+                .setWrapper("[", "]")
+                .setItemDelimiter(",")
+                .setItemDelimiter("-")
+                .addDataType(DataType.STRING)
+                .addDataType(DataType.INTEGER)
+                .build();
+
         return new PatternBuilder()
                 .setItemDelimiter(",")
                 .addDataType(DataType.STRING)

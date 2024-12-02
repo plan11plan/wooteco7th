@@ -5,29 +5,18 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.function.Supplier;
 import racingcar.domain.AttemptCount;
-import racingcar.domain.RacingCar;
-import racingcar.domain.RacingCars;
+import racingcar.domain.RacingCarName;
 import racingcar.view.mapper.ModelMapper;
 
 public class RequestView {
-    private final String INPUT_RACING_CAR_NAMES= "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
+    private final String INPUT_RACING_CAR_NAMES = "경주할 자동차 이름을 입력하세요. (이름은 쉼표(,) 기준으로 구분)";
     private final String NUMBER_OF_ATTEMPTS_MESSAGE = "시도할 횟수는 몇 회인가요?";
 
 
-    public static void main(String[] args) {
-        RequestView requestView = new RequestView();
-        List<RacingCar> racingCars = requestView.requestRacingCars();
-        racingCars.forEach(System.out::println);
-        System.out.println();
-        AttemptCount attemptCount = requestView.requestAttemptCount();
-        System.out.println(attemptCount.getValue());
-
-        RacingCars racingCars1 = new RacingCars(racingCars);
-        System.out.println(racingCars1.toString());
-
-    }
-    public List<RacingCar> requestRacingCars() {
-        return request(INPUT_RACING_CAR_NAMES, ModelMapper::toRacingCars);
+    public List<RacingCarName> requestRacingCarNames() {
+        System.out.println(INPUT_RACING_CAR_NAMES);
+        String input = Console.readLine();
+        return ModelMapper.toRacingCarNames(input);
     }
 
     public AttemptCount requestAttemptCount() {

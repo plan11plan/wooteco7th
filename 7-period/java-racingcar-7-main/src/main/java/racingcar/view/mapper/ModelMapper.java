@@ -3,7 +3,7 @@ package racingcar.view.mapper;
 import java.util.List;
 import java.util.stream.Collectors;
 import racingcar.domain.AttemptCount;
-import racingcar.domain.RacingCar;
+import racingcar.domain.RacingCarName;
 
 public class ModelMapper {
     private static final String PRODUCT_ERROR_MESSAGE = "[ERROR] 올바르지 않은 형식입니다. '[상품명,가격,수량]' 형식으로 입력해주세요.";
@@ -12,12 +12,12 @@ public class ModelMapper {
     private ModelMapper() {
     }
 
-    public static List<RacingCar> toRacingCars(String input) {
+    public static List<RacingCarName> toRacingCarNames(String input) {
         String pattern = RequestPattern.createRacingCars();
         RequestValidator.validateInput(input, pattern, PRODUCT_ERROR_MESSAGE);
 
         return RequestParser.parseRacingCarsInput(input)
-                .stream().map(name -> new RacingCar(name))
+                .stream().map(name -> new RacingCarName(name))
                 .collect(Collectors.toList());
     }
 
