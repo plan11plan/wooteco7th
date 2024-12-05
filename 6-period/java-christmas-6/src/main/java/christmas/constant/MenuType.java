@@ -7,9 +7,13 @@ public enum MenuType {
     DRINK("음료");
 
 
-    private final String name;
+    private final String displayName;
 
-    MenuType(final String name) {
-        this.name = name;
+    MenuType(final String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
     }
 }

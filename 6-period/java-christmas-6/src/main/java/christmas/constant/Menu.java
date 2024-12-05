@@ -37,12 +37,24 @@ public enum Menu {
 
 
     private final MenuType menuType;
-    private final String name;
+    private final String displayName;
     private final int price;
 
-    Menu(final MenuType menuType, final String name, final int price) {
+    Menu(final MenuType menuType, final String displayName, final int price) {
         this.menuType = menuType;
-        this.name = name;
+        this.displayName = displayName;
         this.price = price;
+    }
+
+    public MenuType getMenuType() {
+        return menuType;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }

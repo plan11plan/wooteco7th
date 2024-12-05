@@ -1,9 +1,11 @@
 package christmas.constant;
 
 public enum ExceptionMessage {
-    NULL_OR_EMPTY_MESSAGE("값은 null이거나 비어 있을 수 없습니다."),
-    INVALID_FORMAT_MESSAGE("유효하지 않은 형식 입니다."),
+    CANT_NULL_OR_EMPTY("값은 null이거나 비어 있을 수 없습니다."),
+    INVALID_INPUT_FORM("유효하지 않은 형식 입니다."),
     //
+
+    NO_EXIST_MENU_MESSAGE("존재하지 않는 메뉴입니다."),
     INVALID_VISIT_DATE_RANGE("유효하지 않은 방문날짜 범위입니다."),
     MENU_CANT_DUPLICATE("메뉴는 중복 될 수 없습니다."),
     MENU_CANT_ONLY_DRINK("음료인 메뉴만 주문할 수 없습니다."),
