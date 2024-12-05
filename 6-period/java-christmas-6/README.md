@@ -42,14 +42,14 @@
 
 ---
 
-## [ ] ⛔️ 제한 사항 검증 기능
+## ✅ ⛔️ 제한 사항 검증 기능
 
 - 사용자가 입력한 값에 대한 검증 한다. 다음 사항들을 예외로 판단한다.
 - 예외 사항에 대해서는 `IllegalArgumentException`을 발생시킨다.
 
-  ### [ ] ExpectedVisitDateValidator
+  ### ✅ ExpectedVisitDateValidator
     - 입력받은 **방문날짜**가 1~31 숫자임을 검증한다.
-  ### [ ] OrderMenuValidator
+  ### ✅ OrderMenuValidator
     - 입력받은 **메뉴**가  **메뉴판**에 존재함을 검증한다.
     - 입력받은 **메뉴**가 중복 메뉴가 없음을 검증한다.
     - 입력받은 **메뉴 타입**이 음료만으로 구성 아님을 검증한다.
@@ -57,7 +57,7 @@
     - 입력받은 **메뉴 형식**이 지켜짐을 검증한다.
     - 입력받은 **메뉴 개수 합**이 20개까지 임을 검증한다.
 
-  ### [ ] EventApplicableValidator
+  ### ✅ EventApplicableValidator
     - 총주문 금액 10,000원 이상부터 이벤트가 적용됩니다.
 
 ---
