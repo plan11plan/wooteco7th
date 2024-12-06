@@ -12,11 +12,19 @@ public enum Badge {
     TREE("트리", 10_000),
     STAR("별", 5_000);
 
-    private final String name;
+    private final String displayName;
     private final int price;
 
-    Badge(final String name, final int price) {
-        this.name = name;
+    Badge(final String displayName, final int price) {
+        this.displayName = displayName;
         this.price = price;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public int getPrice() {
+        return price;
     }
 }
