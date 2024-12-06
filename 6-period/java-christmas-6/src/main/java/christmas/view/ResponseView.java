@@ -4,6 +4,8 @@ import christmas.domain.vo.OrderMenu;
 import christmas.dto.BenefitDetail;
 import christmas.dto.BenefitDetailsDto;
 import christmas.dto.GiveawayDto;
+import christmas.view.io.ConsoleInputView;
+import christmas.view.io.ConsoleOutputView;
 import java.util.List;
 
 public class ResponseView {

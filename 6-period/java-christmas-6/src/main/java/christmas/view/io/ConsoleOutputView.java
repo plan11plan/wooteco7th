@@ -1,4 +1,4 @@
-package christmas.view;
+package christmas.view.io;
 
 public class ConsoleOutputView {
     public ConsoleOutputView() {

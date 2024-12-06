@@ -38,6 +38,5 @@ public class ChristmasController {
         responseView.printEstimatedPaymentAmountAfterDiscount(135_754);
         responseView.printEventBadge("산타");
 
-
     }
 }

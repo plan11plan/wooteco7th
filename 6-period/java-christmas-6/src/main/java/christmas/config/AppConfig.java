@@ -2,10 +2,10 @@ package christmas.config;
 
 import christmas.controller.ChristmasController;
 import christmas.service.ChristmasService;
-import christmas.view.ConsoleInputView;
-import christmas.view.ConsoleOutputView;
 import christmas.view.RequestView;
 import christmas.view.ResponseView;
+import christmas.view.io.ConsoleInputView;
+import christmas.view.io.ConsoleOutputView;
 
 public class AppConfig {
     private ConsoleInputView createInputView() {

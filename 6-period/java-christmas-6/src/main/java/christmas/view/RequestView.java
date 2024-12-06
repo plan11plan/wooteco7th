@@ -4,6 +4,8 @@ import static christmas.util.RetryOnExceptionTemplate.retryOnException;
 
 import christmas.domain.vo.OrderMenu;
 import christmas.domain.vo.VisitDate;
+import christmas.view.io.ConsoleInputView;
+import christmas.view.io.ConsoleOutputView;
 import christmas.view.mapper.ModelMapper;
 import java.util.List;
 import java.util.function.Function;
@@ -37,7 +39,7 @@ public class RequestView {
                 .toString();
         return request(message, ModelMapper::toVisitDate);
     }
-    
+
     public List<OrderMenu> requestOrderMenus() {
         String message = new StringBuilder()
                 .append(REQUEST_ORDER_MENUS).toString();
