@@ -24,9 +24,6 @@ public class ResponseView {
         this.consoleOut = consoleOut;
     }
 
-    /*
-    주문 메뉴
-     */
     public void printOrderMenusInfo(List<OrderMenu> orderMenus) {
         StringBuilder br = new StringBuilder();
         br.append("<주문 메뉴>").append(NEW_LINE);
@@ -38,9 +35,6 @@ public class ResponseView {
         consoleOut.println(message);
     }
 
-    /*
-    - ### 할인 전 총주문 금액 출력
-     */
     public void printTotalOrderBeforeDiscount(int totalAmount) {
         String message = new StringBuilder()
                 .append("<할인 전 총주문 금액>").append(NEW_LINE)
@@ -50,10 +44,6 @@ public class ResponseView {
         consoleOut.println(message);
     }
 
-    /*
-     <증정 메뉴>
-         - 증정 이벤트에 해당하지 않는 경우, 증정 메뉴 "없음"으로 보여 주세요.
-     */
     public void printGiveawayMenu(GiveawayDto giveawayDto) {
         StringBuilder br = new StringBuilder();
         br.append("<증정 메뉴>").append(NEW_LINE);
@@ -68,12 +58,6 @@ public class ResponseView {
         consoleOut.println(br.toString());
     }
 
-    /*
-        - ### 혜택 내역 출력
-        - 고객에게 적용된 이벤트 내역만 보여 주세요.
-        - 적용된 이벤트가 하나도 없다면 혜택 내역 "없음"으로 보여 주세요.
-        - 혜택 내역에 여러 개의 이벤트가 적용된 경우, 출력 순서는 자유롭게 출력해주세요.
-     */
 
     public void printBenefitDetails(final BenefitDetailsDto benefitDetailsDto) {
         StringBuilder br = new StringBuilder();
@@ -91,10 +75,6 @@ public class ResponseView {
         consoleOut.println(br.toString());
     }
 
-    /*
-        - ### 총혜택 금액 출력
-        - 없으면 "0원"
-     */
     public void printTotalBenefitAmount(int totalAmount) {
 
         StringBuilder br = new StringBuilder();
@@ -110,11 +90,6 @@ public class ResponseView {
         consoleOut.println(br.toString());
     }
 
-    /*
-    - ### 할인 후 예상 결제 금액 출력
-        - 할인 후 예상 결제 금액 = 할인 전 총주문 금액 - 할인 금액
-     */
-    //Estimated payment amount after discount
     public void printEstimatedPaymentAmountAfterDiscount(int totalAmount) {
         String message = new StringBuilder()
                 .append("<할인 후 예상 결제 금액>").append(NEW_LINE)
@@ -123,11 +98,6 @@ public class ResponseView {
         consoleOut.println(message);
     }
 
-    /*
-        - ### 12월 이벤트 배지 출력
-        - 총혜택 금액에 따라 이벤트 배지의 이름을 다르게 보여 주세요.
-        - 없으면 "없음"
-     */
     public void printEventBadge(String badgeName) {
         StringBuilder br = new StringBuilder();
         br.append("<12월 이벤트 배지>").append(NEW_LINE);
