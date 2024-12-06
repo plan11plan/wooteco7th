@@ -5,7 +5,7 @@ public enum ExceptionMessage {
     CANT_NULL("값은 null일 수 없습니다"),
     INVALID_INPUT_FORM("유효하지 않은 형식 입니다."),
 
-    INVALID_INTEGER_TYPE("유혀하지 않은 숫자 형식 입니다.");
+    INVALID_INTEGER_TYPE("유혀하지 않은 숫자 형식 입니다."),
     //
 
     NO_EXIST_MENU_MESSAGE("존재하지 않는 메뉴입니다."),
