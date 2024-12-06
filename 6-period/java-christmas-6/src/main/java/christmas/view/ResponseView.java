@@ -56,11 +56,12 @@ public class ResponseView {
         StringBuilder br = new StringBuilder();
         br.append("<증정 메뉴>").append(NEW_LINE);
         if (giveawayDto.getGiveawayName() == "없음") {
-            br.append(giveawayDto.getGiveawayName());
+            br.append(giveawayDto.getGiveawayName()).append(NEW_LINE);
 
         }
         if (giveawayDto.getGiveawayName() != "없음") {
-            br.append(giveawayDto.getGiveawayName()).append(" ").append(giveawayDto.getQuantity()).append("개");
+            br.append(giveawayDto.getGiveawayName()).append(" ").append(giveawayDto.getQuantity()).append("개")
+                    .append(NEW_LINE);
         }
         consoleOut.println(br.toString());
     }
@@ -92,10 +93,10 @@ public class ResponseView {
         - ### 총혜택 금액 출력
         - 없으면 "0원"
      */
-    public void printTotalOrderAfterDiscount(int totalAmount) {
+    public void printTotalBenefitAmount(int totalAmount) {
 
         StringBuilder br = new StringBuilder();
-        br.append("<할인 전 총주문 금액>").append(NEW_LINE);
+        br.append("<총혜택 금액>").append(NEW_LINE);
         if (totalAmount == 0) {
             br.append("없음")
                     .append(NEW_LINE);
