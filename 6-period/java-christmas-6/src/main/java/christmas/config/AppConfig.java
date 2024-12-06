@@ -1,6 +1,7 @@
 package christmas.config;
 
 import christmas.controller.ChristmasController;
+import christmas.repository.OrderRepository;
 import christmas.service.ChristmasService;
 import christmas.view.RequestView;
 import christmas.view.ResponseView;
@@ -26,7 +27,7 @@ public class AppConfig {
 
     // service
     private ChristmasService createService() {
-        return new ChristmasService();
+        return new ChristmasService(new OrderRepository());
     }
 
     public ChristmasController initialize() {

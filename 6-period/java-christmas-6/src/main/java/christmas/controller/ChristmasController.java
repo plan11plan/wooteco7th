@@ -1,9 +1,10 @@
 package christmas.controller;
 
 import christmas.domain.vo.OrderMenu;
-import christmas.dto.BenefitDetail;
+import christmas.domain.vo.VisitDate;
 import christmas.dto.BenefitDetailsDto;
 import christmas.dto.GiveawayDto;
+import christmas.dto.OrderDto;
 import christmas.service.ChristmasService;
 import christmas.view.RequestView;
 import christmas.view.ResponseView;
@@ -22,21 +23,52 @@ public class ChristmasController {
     }
 
     public void run() {
-        requestView.requestExpectedVisitDate();
+        OrderDto orderDto = createOrder();
+
+        getTotalOrderBeforeDiscount(orderDto.getId());
+        getGiveawayMenu(orderDto.getId());
+        getBenefitDetails(orderDto);
+        getTotalBenefitAmount(orderDto.getId());
+        getEstimatedPaymentAmountAfterDiscount(orderDto.getId());
+        getEventBadge(orderDto.getId());
+    }
+
+    private void getEventBadge(final Long orderId) {
+        String result = christmasService.getEventBadge(orderId);
+        responseView.printEventBadge(result);
+
+    }
+
+    private void getEstimatedPaymentAmountAfterDiscount(final long orderId) {
+        int result = christmasService.getEstimatedPaymentAmountAfterDiscount(orderId);
+        responseView.printEstimatedPaymentAmountAfterDiscount(result);
+    }
+
+    private void getTotalBenefitAmount(long orderId) {
+        int result = christmasService.getTotalBenefitAmount(orderId);
+        responseView.printTotalBenefitAmount(result);
+    }
+
+    private void getBenefitDetails(final OrderDto orderDto) {
+        BenefitDetailsDto benefitDetailsDto = christmasService.getBenefitDetails(orderDto.getId());
+        responseView.printBenefitDetails(benefitDetailsDto);
+    }
+
+    private void getGiveawayMenu(final long orderId) {
+        GiveawayDto giveawayDto = christmasService.createGiveawayMenu(orderId);
+        responseView.printGiveawayMenu(giveawayDto);
+    }
+
+    private void getTotalOrderBeforeDiscount(final long orderId) {
+        int result = christmasService.calculateTotalOrderBeforeDiscount(orderId);
+        responseView.printTotalOrderBeforeDiscount(result);
+    }
+
+    private OrderDto createOrder() {
+        VisitDate visitDate = requestView.requestExpectedVisitDate();
         List<OrderMenu> orderMenus = requestView.requestOrderMenus();
-        responseView.printOrderMenusInfo(orderMenus);
-
-        responseView.printTotalOrderBeforeDiscount(142_000);
-        responseView.printGiveawayMenu(new GiveawayDto("샴페인", 1));
-        responseView.printBenefitDetails(new BenefitDetailsDto(
-                List.of(new BenefitDetail("크리스마스 디데이 할인", 1_200),
-                        new BenefitDetail("평일 할인", 4_046),
-                        new BenefitDetail("특별 할인", 1_000),
-                        new BenefitDetail("증정 이벤트", 25_000))
-        ));
-        responseView.printTotalBenefitAmount(31_246);
-        responseView.printEstimatedPaymentAmountAfterDiscount(135_754);
-        responseView.printEventBadge("산타");
-
+        OrderDto orderDto = christmasService.createOrder(visitDate, orderMenus);
+        responseView.printOrderMenusInfo(orderDto.getOrderMenus());
+        return orderDto;
     }
 }
