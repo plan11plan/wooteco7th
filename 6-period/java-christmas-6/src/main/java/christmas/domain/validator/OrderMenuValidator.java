@@ -8,15 +8,13 @@ import static christmas.constant.ExceptionMessage.INVALID_MENU_TOTAL_QUANTITY;
 import static christmas.constant.ExceptionMessage.MENU_CANT_DUPLICATE;
 import static christmas.constant.ExceptionMessage.MENU_CANT_ONLY_DRINK;
 import static christmas.constant.ExceptionMessage.NO_EXIST_MENU_MESSAGE;
-import static christmas.constant.MenuType.DRINK;
 import static christmas.util.ListUtils.hasDuplicates;
 import static christmas.util.NumberUtils.isBetweenInclusive;
 
 import christmas.constant.Menu;
+import christmas.constant.MenuType;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 
 public class OrderMenuValidator {
@@ -35,9 +33,12 @@ public class OrderMenuValidator {
         }
     }
 
-    public static void validateNotOnlyDrinkMenuType(List<String> menuTypes) {
-        Set<String> strings = new HashSet<>(menuTypes);
-        if (strings.size() == 1 && strings.stream().findFirst().get() == (DRINK.getDisplayName())) {
+    public static void validateNotOnlyDrinkMenuType(List<String> orderMenus) {
+        boolean isAllDrinks = orderMenus.stream()
+                .map(menuName -> Menu.valueOf(menuName))
+                .allMatch(menu -> menu.getMenuType() == MenuType.DRINK);
+
+        if (isAllDrinks) {
             throw new IllegalArgumentException(MENU_CANT_ONLY_DRINK.getMessage());
         }
     }
